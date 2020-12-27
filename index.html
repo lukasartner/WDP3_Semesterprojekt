@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Gap_Filler</title>
+  <title>Quiz</title>
 
   <meta name="description" content="Test all HTML form and input elements for learn-to-send-email-via-google-script-html-no-server." />
   <meta name="author" content="dwyl">
@@ -13,19 +13,37 @@
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css">
-</head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<a href="http://www.google.com">
-  <img src="wrld-15.jpg" alt="My Image">
-</a>
-<script type="text/javascript">
-  $(document).ready(function() {
-$("img").on("click", function(event) {
-  var x = event.pageX - this.offsetLeft;
-  var y = event.pageY - this.offsetTop;
-  alert("X Coordinate: " + x + " Y Coordinate: " + y);
-});
-});
+  <script defer src="script.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+<script type='text/javascript'>    
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/16XH56MWaPFG8bSGWp4UdhmR7og1OMNGIyvLf1FZUc1Q/edit?usp=sharing';
+
+  function init() {
+    Tabletop.init( { key: publicSpreadsheetUrl,
+                     callback: showInfo,
+                     simpleSheet: true } )
+  }
+
+  function showInfo(data, tabletop) {
+    alert('Successfully processed!')
+    console.log(data);
+  }
+
+  window.addEventListener('DOMContentLoaded', init)
 </script>
+  
+</head>
+
+<body>
+  
+  <p id="QuestionNumber"></p>
+  <p>
+    HALLO
+  </p>
+  <button id="clickMe" type="button">Click Me!</button>
+  <p id="HintOne"></p>
+  <p id="HintTwo"></p>
+  <p id="HintThree"></p>
+  <p id="HintFour"></p>
 </body>
 </html>
