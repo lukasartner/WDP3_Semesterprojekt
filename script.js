@@ -1,8 +1,8 @@
 let i = 0;
 let local;
-var points = 1000;
+let points = 1000;
 let score = 0;
-var interval = setInterval(startTimer, 50);
+
 
 var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/16XH56MWaPFG8bSGWp4UdhmR7og1OMNGIyvLf1FZUc1Q/edit?usp=sharing';
 
@@ -44,7 +44,8 @@ function submitInput() {
         points = 1000;
         document.getElementById("Score").innerHTML = "Score: " + score;
         document.getElementById(local[i].FalscherHinweis).style.visibility = null;
-        i++; game();
+        i++;
+        game();
     } else {
     document.getElementById("runningGame").style.visibility = "hidden";
     document.getElementById("gameOver").style.visibility = "visible";
@@ -52,18 +53,20 @@ function submitInput() {
     ;
 }
 
-function game(data, tabletop) {
+function game() {
     document.getElementById("QuestionNumber").innerHTML = "Frage Nr: " + local[i].FrageNr;
+    document.getElementById("lookingFor").innerHTML = "Gesucht ist: " + local[i].GesuchtIst;
     document.getElementById("HintOne").innerHTML = local[i].HintOne;
     document.getElementById("HintTwo").innerHTML = local[i].HintTwo;
     document.getElementById("HintThree").innerHTML = local[i].HintThree;
     document.getElementById("HintFour").innerHTML = local[i].HintFour;
     document.getElementById("input").maxLength = local[i].Antwort.length;
     document.getElementById("input").style.width = (1.5 * local[i].Antwort.length - 0.01) + 'ch';
-    startTimer();
+    let interval = setInterval(startTimer, 50);
 }
 
 function startTimer() {
+    console.log("TimerStarted");
     document.getElementById("points").innerHTML = "Punkte: " + points;
     if (points < 1) {
         clearInterval(interval);
