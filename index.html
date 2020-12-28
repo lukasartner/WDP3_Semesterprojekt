@@ -7,43 +7,43 @@
 
   <title>Quiz</title>
 
-  <meta name="description" content="Test all HTML form and input elements for learn-to-send-email-via-google-script-html-no-server." />
+  <meta name="description"
+    content="Test all HTML form and input elements for learn-to-send-email-via-google-script-html-no-server." />
   <meta name="author" content="dwyl">
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
-<script type='text/javascript'>    
-  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/16XH56MWaPFG8bSGWp4UdhmR7og1OMNGIyvLf1FZUc1Q/edit?usp=sharing';
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script defer src="script.js"></script>
 
-  function init() {
-    Tabletop.init( { key: publicSpreadsheetUrl,
-                     callback: showInfo,
-                     simpleSheet: true } )
-  }
-
-  function showInfo(data, tabletop) {
-    alert('Successfully processed!')
-    console.log(data);
-  }
-
-  window.addEventListener('DOMContentLoaded', init)
-</script>
-  
 </head>
 
 <body>
-  
-  <p id="QuestionNumber"></p>
-  <p>
-    HALLO
-  </p>
-  <button id="clickMe" type="button">Click Me!</button>
-  <p id="HintOne"></p>
-  <p id="HintTwo"></p>
-  <p id="HintThree"></p>
-  <p id="HintFour"></p>
+  <div class="container-fluid">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div id="runningGame">
+            <div id="Score">Score: 0</div> <br>
+            <p id="QuestionNumber"></p>
+            <p id="HintOne"></p>
+            <p id="HintTwo"></p>
+            <p id="HintThree"></p>
+            <p id="HintFour"></p>
+            <input id="input" type="text" onkeyup="this.value = this.value.toUpperCase();" />
+            <button id="clickMe" type="button">Antwort einloggen</button></br>
+            <button id="joker" type="button">Blende falschen Hinweis aus</button>
+            <div id="points"></div>
+          </div>
+          <div id="gameOver" style="visibility: hidden;">Falsche Antwort!</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>
