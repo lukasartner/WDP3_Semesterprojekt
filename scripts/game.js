@@ -1,15 +1,12 @@
 let i = 0;
 let localGameArray;
-let localScoreboardArray;
 let points;
 const initScore = 0;
 let score = initScore;
 let interval;
-const scoresToDisplay = 10;
 const initPoints = 1000;
 
 let gameURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6Tr6qirvN9nEfFtNrOO7qzIDEE5Aj7tc8D_MhVOgPiNkkUXuYRT7mOFwu6Wt08eMaT_9yi66XV8Vf/pub?output=csv';
-let scoreboardURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRjf9RbLjA6czrzQtmX8EEBXHHlnwWra78jWw-_9pUW2KtaOAwVk8PBkm0hpX1TOL8VfAu1jeldvHOz/pub?output=csv';
 
 function initGame() {
     Papa.parse(gameURL, {
@@ -23,67 +20,8 @@ function initGame() {
         })
 };
 
-function initScoreboard() {
-    Papa.parse(scoreboardURL, {
-            download: true,
-          header: true,
-          complete: function(results) {
-            localScoreboardArray = results.data
-            console.log(localScoreboardArray)
-            document.getElementById("excelDataTable").innerHTML = ""
-            buildHtmlTable('#excelDataTable')
-          }
-        })
-};
-
-async function saveScoreboardArray(data, tabletop) {
-    localScoreboardArray = data;
-    buildHtmlTable('#excelDataTable')
-   // document.getElementById("scoreboard").innerHTML = (JSON.stringify(data.slice(0,10)));
-    return "DONE"
-}
-
-function buildHtmlTable(selector) {
-    var columns = addAllColumnHeaders(localScoreboardArray, selector);
-  
-    for (var i = 0; i < scoresToDisplay; i++) {
-      var row$ = $('<tr/>');
-      for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-        var cellValue = localScoreboardArray[i][columns[colIndex]];
-        if (cellValue == null) cellValue = "";
-        row$.append($('<td/>').html(cellValue));
-      }
-      $(selector).append(row$);
-    }
-  }
-  
-  // Adds a header row to the table and returns the set of columns.
-  // Need to do union of keys from all records as some records may not contain
-  // all records.
-  function addAllColumnHeaders(localScoreboardArray, selector) {
-    var columnSet = [];
-    var headerTr$ = $('<tr/>');
-  
-    for (var i = 0; i < scoresToDisplay; i++) {
-      var rowHash = localScoreboardArray[i];
-      for (var key in rowHash) {
-        if ($.inArray(key, columnSet) == -1) {
-          columnSet.push(key);
-          headerTr$.append($('<th/>').html(key));
-        }
-      }
-    }
-    $(selector).append(headerTr$);
-  
-    return columnSet;
-  }
-
 window.onload = function () {
     document.getElementById("newGame").addEventListener("click", initGame);
-    document.getElementById("submitScore").addEventListener("click", showHighscores);
-    document.getElementById("showHighscore").addEventListener("click", showHighscores);
-    document.getElementById("newQuestion").addEventListener("click", showQuestionSubmitter);
-    initScoreboard();
     resetPoints();
 };
 
@@ -93,9 +31,8 @@ function resetPoints() {
 
 function startNewGame() {
     document.getElementById("beforeGame").style.display = "none"
-    document.getElementById("scoreboard").style.display = "none"
     document.getElementById("runningGame").style.display = "block"
-    document.getElementById("clickMe").addEventListener("click", submitInput)
+    document.getElementById("clickMe").addEventListener("click", submitAnswer)
     document.getElementById("joker").addEventListener("click", HideWrongHint)
     score = initScore;
     clearInterval(interval);
@@ -103,16 +40,16 @@ function startNewGame() {
 }
 
 function HideWrongHint() {
-    if (document.getElementById(local[i].FalscherHinweis).style.visibility != "hidden") {
-        document.getElementById(local[i].FalscherHinweis).style.visibility = "hidden";
+    if (document.getElementById(localGameArray[i].FalscherHinweis).style.visibility != "hidden") {
+        document.getElementById(localGameArray[i].FalscherHinweis).style.visibility = "hidden";
         if (points >= 100) points -= 100; else points = 0;
     }
 }
 
-function submitInput() {
+function submitAnswer() {
     clearInterval(interval);
-    if (document.getElementById('input').value == localGameArray[i].Antwort.toUpperCase()) {
-        document.getElementById("input").value = "";
+    if (document.getElementById('answer').value == localGameArray[i].Antwort.toUpperCase()) {
+        document.getElementById("answer").value = "";
         console.log(points);
         score += points;
         resetPoints();
@@ -127,38 +64,10 @@ function submitInput() {
     ;
 }
 
-function showHighscores() {
-        var x = document.getElementById("scoreboard");
-        document.getElementById("beforeGame").style.display = "block"
-        document.getElementById("runningGame").style.display = "none"
-        document.getElementById("afterGame").style.display = "none"
-        if (x.style.display === "none") {
-            initScoreboard();
-            x.style.display = "block"
-        } else {
-            x.style.display = "none"
-        }
-      }
-
-function showQuestionSubmitter() {
-        var x = document.getElementById("submitQuestion");
-        document.getElementById("beforeGame").style.display = "none"
-        document.getElementById("runningGame").style.display = "none"
-        document.getElementById("afterGame").style.display = "none"
-        if (x.style.display === "none") {
-            initScoreboard();
-            x.style.display = "block"
-        } else {
-            x.style.display = "none"
-        }
-      }
-
 function showStartScreen(){
     document.getElementById("beforeGame").style.display = "block"
     document.getElementById("runningGame").style.display = "none"
     document.getElementById("afterGame").style.display = "none"
-    document.getElementById("scoreboard").style.display = "none"
-    document.getElementById("submitQuestion").style.display = "none"
 }
 
 function game() {
@@ -168,8 +77,8 @@ function game() {
     document.getElementById("HintTwo").innerHTML = localGameArray[i].HintTwo;
     document.getElementById("HintThree").innerHTML = localGameArray[i].HintThree;
     document.getElementById("HintFour").innerHTML = localGameArray[i].HintFour;
-    document.getElementById("input").maxLength = localGameArray[i].Antwort.length;
-    document.getElementById("input").style.width = (1.5 * localGameArray[i].Antwort.length - 0.01) + 'ch';
+    document.getElementById("answer").maxLength = localGameArray[i].Antwort.length;
+    document.getElementById("answer").style.width = (1.5 * localGameArray[i].Antwort.length - 0.01) + 'ch';
     interval = setInterval(startTimer, 50);
 }
 
@@ -182,13 +91,12 @@ function startTimer() {
 (function() {
     // get all data in form and return object
     function getFormData(form) {
+      console.log("getFormData");
       var elements = form.elements;
       var honeypot;
-  console.log(Object.keys(elements))
+
       var fields = Object.keys(elements).filter(function(k) {
   
-        console.log(k);
-        console.log(elements[k].value);
         if (elements[k].name === "honeypot") {
           honeypot = elements[k].value;
           return false;
@@ -211,37 +119,37 @@ function startTimer() {
         if (name === "Punkte")
         formData[name] = score; else
         formData[name] = element.value;
-        console.log("----------")
-        console.log(formData[name])
-        console.log("----------")
       });
   
       // add form-specific values into the data
       formData.formDataNameOrder = JSON.stringify(fields);
-      formData.formGoogleSheetName = form.dataset.sheet || "Questions"; // default sheet name
+      formData.formGoogleSheetName = form.dataset.sheet || "Table"; // default sheet name
       formData.formGoogleSendEmail
         = form.dataset.email || ""; // no email by default
   
       return {data: formData, honeypot: honeypot};
     }
   
-    function handleFormSubmit(event) {  // handles form submit without any jquery
+    function handleFormSubmit(event) { 
       event.preventDefault();           // we are submitting via xhr below
       var form = event.target;
       var formData = getFormData(form);
       var data = formData.data;
-  
+      
+      console.log(formData.honeypot); // handles form submit without any jquery
       // If a honeypot field is filled, assume it was done so by a spam bot.
       if (formData.honeypot) {
         return false;
       }
   
       disableAllButtons(form);
+      console.log("disableAllButtons");
       var url = form.action;
       var xhr = new XMLHttpRequest();
       xhr.open('POST', url);
       // xhr.withCredentials = true;
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      console.log("jetzt wird submitted")
       xhr.onreadystatechange = function() {
           if (xhr.readyState === 4 && xhr.status === 200) {
             form.reset();
@@ -261,12 +169,12 @@ function startTimer() {
           return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
       }).join('&');
       xhr.send(encoded);
+      console.log("submission ist erledigt")
     }
     
     function loaded() {
       // bind to the submit event of our form
       var forms = document.querySelectorAll("form.gform");
-   //   console.log(forms.length)
       for (var i = 0; i < forms.length; i++) {
         forms[i].addEventListener("submit", handleFormSubmit, false);
       }
@@ -274,6 +182,7 @@ function startTimer() {
     document.addEventListener("DOMContentLoaded", loaded, false);
   
     function disableAllButtons(form) {
+      console.log("disableAllButtons");
       var buttons = form.querySelectorAll("button");
       for (var i = 0; i < buttons.length; i++) {
         buttons[i].disabled = true;

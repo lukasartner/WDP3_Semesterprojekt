@@ -276,7 +276,7 @@
   }
 }
 
-input {
+#answer {
   display: block;
   margin: 1em auto;
   border: none;
@@ -289,10 +289,11 @@ input {
         transparent 0, 
         transparent 1.5ch) 
       0 100%/100% 2px no-repeat;
-  color: dimgrey;
+  color: #bb5f6b ;
   font: 5ch consolas, monospace;
   letter-spacing: .5ch;
 }
+
 input:focus {
   outline: none;
   color: #bb5f6b;
@@ -327,6 +328,6 @@ textarea {
   font-size: 125%;
 }
 
-.honeypot-field {
+.honeypot {
   display: none;
 }

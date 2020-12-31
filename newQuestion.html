@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>WDP3 Projekt | Neue Frage einreichen</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Ubuntu+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script defer src="scripts/newQuestion.js"></script>
+  </head>
+  <body>
+    <nav class="navigation">
+        <a class="nav-logo" href="./index.html"><img src="./images/Logo-Menu.png" alt="Logo small"></a> 
+        <a href="./index.html" class="nav-item">Quiz</a>
+        <a href="./scoreboard.html" class="nav-item">Scoreboard</a>
+        <a href="./newQuestion.html" class="nav-item">Neue Frage einreichen</a>
+        <a href="./projekt.html" class="nav-item">Projekt</a>
+    </nav>
+    <main class="page-main">
+        <h1>Neue Frage einreichen</h1>
+        <section>
+          <form class="gform" method="POST" data-email="example@gmail.net"
+          action="https://script.google.com/macros/s/AKfycbwdRAf4zZsDEeK7uyW4MRnVJqmCfg66X2jKLoyittpbSld1d6w/exec">
+          <div class="form-elements">
+
+
+            <label for="GesuchtIst">Was ist gesucht: </label>
+            <input id="GesuchtIst" name="GesuchtIst" />
+            <br>
+            <label for="HintOne">Hinweis 1: </label>
+            <input id="HintOne" name="HintOne" />
+            <br>
+
+            <label for="HintTwo">Hinweis 2: </label>
+            <input id="HintTwo" name="HintTwo" />
+            <br>
+
+            <label for="HintThree">Hinweis 3: </label>
+            <input id="HintThree" name="HintThree" />
+            <br>
+
+            <label for="HintFour">Hinweis 4: </label>
+            <input id="HintFour" name="HintFour" />
+            <br>
+
+            <label for="Antwort">Antwort: </label>
+            <input id="Antwort" name="Antwort" />
+            <br>
+
+            <label for="FalscherHinweis">Falscher Hinweis: </label>
+              <input type="radio" id="WrongHintOne" name="FalscherHinweis" value="HintOne">
+              <label for="one"> Hinweis 1</label> 
+              <input type="radio" id="WrongHintTwo" name="FalscherHinweis" value="HintTwo">
+              <label for="two"> Hinweis 2</label>
+              <input type="radio" id="WrongHintThree" name="FalscherHinweis" value="HintThree">
+              <label for="three"> Hinweis 3</label> 
+              <input type="radio" id="WrongHintFour" name="FalscherHinweis" value="HintFour">
+              <label for="four"> Hinweis 4</label> 
+              <br>
+
+            <input class="honeypot" id="questionHoneypot" type="text" name="honeypot" value="" />
+
+
+            <button class="button-success pure-button button-xlarge" id="submitQuestion">
+              <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+          </div>
+
+          <!-- Customise the Thankyou Message People See when they submit the form: -->
+          <div class="thankyou_message" style="display:none;">
+            <h2>Vielen Dank für die Einreichung der Frage!</h2>
+          </div>
+        </form>
+        </section>
+    </main>
+    <footer class="page-footer">
+      <p>
+        © 2021 | WDP3 Projekt | Lukas Artner & Patrick Schauer
+      </p>
+    </footer>
+  </body>
+</html>
