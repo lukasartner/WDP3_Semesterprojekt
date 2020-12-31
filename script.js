@@ -2,12 +2,13 @@ let i = 0;
 let localGameArray;
 let localScoreboardArray;
 let points;
-let score = 0;
+const initScore = 0;
+let score = initScore;
 let interval;
 const scoresToDisplay = 10;
 const initPoints = 1000;
 
-let gameURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSscJOANgfVJlrdEFLhA8wo9SECKjas1J8l26_-ezt2n-c3MJqXtsTqwmk1tE_dQ0s1vQ4PpPpCwVb6/pub?output=csv';
+let gameURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6Tr6qirvN9nEfFtNrOO7qzIDEE5Aj7tc8D_MhVOgPiNkkUXuYRT7mOFwu6Wt08eMaT_9yi66XV8Vf/pub?output=csv';
 let scoreboardURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRjf9RbLjA6czrzQtmX8EEBXHHlnwWra78jWw-_9pUW2KtaOAwVk8PBkm0hpX1TOL8VfAu1jeldvHOz/pub?output=csv';
 
 function initGame() {
@@ -81,6 +82,7 @@ window.onload = function () {
     document.getElementById("newGame").addEventListener("click", initGame);
     document.getElementById("submitScore").addEventListener("click", showHighscores);
     document.getElementById("showHighscore").addEventListener("click", showHighscores);
+    document.getElementById("newQuestion").addEventListener("click", showQuestionSubmitter);
     initScoreboard();
     resetPoints();
 };
@@ -91,9 +93,12 @@ function resetPoints() {
 
 function startNewGame() {
     document.getElementById("beforeGame").style.display = "none"
+    document.getElementById("scoreboard").style.display = "none"
     document.getElementById("runningGame").style.display = "block"
     document.getElementById("clickMe").addEventListener("click", submitInput)
     document.getElementById("joker").addEventListener("click", HideWrongHint)
+    score = initScore;
+    clearInterval(interval);
     game();
 }
 
@@ -123,15 +128,41 @@ function submitInput() {
 }
 
 function showHighscores() {
+        var x = document.getElementById("scoreboard");
+        document.getElementById("beforeGame").style.display = "block"
+        document.getElementById("runningGame").style.display = "none"
+        document.getElementById("afterGame").style.display = "none"
+        if (x.style.display === "none") {
+            initScoreboard();
+            x.style.display = "block"
+        } else {
+            x.style.display = "none"
+        }
+      }
+
+function showQuestionSubmitter() {
+        var x = document.getElementById("submitQuestion");
+        document.getElementById("beforeGame").style.display = "none"
+        document.getElementById("runningGame").style.display = "none"
+        document.getElementById("afterGame").style.display = "none"
+        if (x.style.display === "none") {
+            initScoreboard();
+            x.style.display = "block"
+        } else {
+            x.style.display = "none"
+        }
+      }
+
+function showStartScreen(){
     document.getElementById("beforeGame").style.display = "block"
     document.getElementById("runningGame").style.display = "none"
     document.getElementById("afterGame").style.display = "none"
-    initScoreboard();
-    document.getElementById("scoreboard").style.display = "block"
+    document.getElementById("scoreboard").style.display = "none"
+    document.getElementById("submitQuestion").style.display = "none"
 }
 
 function game() {
-    document.getElementById("QuestionNumber").innerHTML = "Frage Nr: " + localGameArray[i].FrageNr;
+    document.getElementById("QuestionNumber").innerHTML = "Frage Nr: " + (i + 1);
     document.getElementById("lookingFor").innerHTML = "Gesucht ist: " + localGameArray[i].GesuchtIst;
     document.getElementById("HintOne").innerHTML = localGameArray[i].HintOne;
     document.getElementById("HintTwo").innerHTML = localGameArray[i].HintTwo;
@@ -187,7 +218,7 @@ function startTimer() {
   
       // add form-specific values into the data
       formData.formDataNameOrder = JSON.stringify(fields);
-      formData.formGoogleSheetName = form.dataset.sheet || "scores"; // default sheet name
+      formData.formGoogleSheetName = form.dataset.sheet || "Questions"; // default sheet name
       formData.formGoogleSendEmail
         = form.dataset.email || ""; // no email by default
   
@@ -221,6 +252,7 @@ function startTimer() {
             var thankYouMessage = form.querySelector(".thankyou_message");
             if (thankYouMessage) {
               thankYouMessage.style.display = "block";
+              showStartScreen();
             }
           }
       };

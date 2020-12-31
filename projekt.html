@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>WDP3 Projekt | Projekt</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Ubuntu+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="scripts/script.js"></script>
+  </head>
+  <body>
+    <nav class="navigation">
+        <a class="nav-logo" href="./index.html"><img src="./images/Logo-Menu.png" alt="Logo small"></a> 
+        <a href="./index.html" class="nav-item">Quiz</a>
+        <a href="./scoreboard.html" class="nav-item">Scoreboard</a>
+        <a href="./projekt.html" class="nav-item">Projekt</a>
+    </nav>
+    <main class="page-main">
+      <h1>Projekt</h1>
+      <h2>Team</h2>  
+      <section class="table-team">
+        <section class="row-team">
+            <!-- Card Lukas Artner --> 
+            <section class="column-team">
+                <section class="card">
+                    <img class="member-image" src="./images/lukasartner.jpg" alt="Lukas Artner">
+                    <section class="container">
+                      <h4><b>Lukas Artner</b></h4>
+                      <p>Quiz programmiert</p>
+                      <p>Landing Page</p>
+                    </section>
+                  </section>
+            </section>
+            <!-- Card Lukas Artner --> 
+            <!-- Card Patrick Schauer --> 
+            <section class="column-team">
+                <section class="card">
+                    <img class="member-image" src="./images/patrickschauer.jpg" alt="Patrick Schauer">
+                    <section class="container">
+                      <h4><b>Patrick Schauer</b></h4>
+                      <p>Quiz programmiert</p>
+                      <p>Landing Page</p>
+                    </section>
+                  </section>
+            </section>
+            <!-- Card Patrick Schauer --> 
+          </section>
+      </section>
+      <h2>Projektinformation</h2> 
+      <section class="table-project">
+        <section class="row-project">
+            <!-- Button Beschreibung --> 
+            <section class="column-project">
+                <button class="button-project" id="button-beschreibung"><span>Beschreibung</span></button>
+                <section id="modal-beschreibung" class="modal">
+                    <section class="modal-content">
+                        <span class="close" id="close-beschreibung">&times;</span>
+                        <h2>Beschreibung</h2>
+                        <p>In unserem WDP Projekt wurde ein Online Quiz mit JavaScript umgesetzt.</p>
+                        <p>Grundsätzlich ist unser Quiz an die ORF-Show "Q1 - Ein Hinweis ist falsch" angelehnt.</p>
+                        <p>Das heißt, es wird mit Hilfe von vier Hinweisen ein Begriff gesucht, wobei einer der Hinweise falsch ist bzw. nicht zum gesuchten Begriff gehört.</p>
+                        <p>Weiters gibt es einen Joker "Blende falschen Hinweis aus", welcher, wie schon der Name besagt, den falschen Hinweis ausschließt.</p>
+                        <p>Beantwortet der Spieler eine Frage richtig, so gelangt er zur nächsten Frage. Die herunterlaufenden Punkte werden dann zu seinem Score hinzu addiert.</p>
+                        <p>Somit gilt, je schneller ein Spieler die Frage beantwortet, je mehr Punkte bekommt er zu seinem Score hinzu addiert.</p>
+                        <p>Beantwortet der Spieler eine Frage falsch, so ist das Spiel beendet.</p>
+                    </section>
+                </section>
+            </section>
+            <!-- Button Beschreibung -->
+            <!-- Button Details --> 
+            <section class="column-project">
+                <button class="button-project" id="button-details"><span>Details</span></button>
+                <section id="modal-details" class="modal">
+                    <section class="modal-content">
+                        <span class="close" id="close-details">&times;</span>
+                        <h2>Details</h2>
+                        <p>Projekttyp: Online-Game</p>
+                        <p>Zeitaufwand: 36h</p>
+                        <p>Backend: Google Sheets</p>
+                    </section>
+                </section>
+            </section>
+            <!-- Button Details -->
+            <!-- Button Technologien --> 
+            <section class="column-project">
+                <button class="button-project" id="button-technologien"><span>Technologien</span></button>
+                <section id="modal-technologien" class="modal">
+                    <section class="modal-content">
+                        <span class="close" id="close-technologien">&times;</span>
+                        <h2>Technologien</h2>
+                        <p>HTML</p>
+                        <p>CSS</p>
+                        <p>JavaScript</p>
+                    </section>
+                </section>
+            </section>
+            <!-- Button Technologien --> 
+        </section>
+      </section>
+      <h2>Snapshots</h2>
+      <!-- Slideshow container -->
+      <section class="slideshow-container">
+
+        <section class="mySlides fade">
+            <img src="./images/lukasartner.jpg">
+        </section>
+    
+        <section class="mySlides fade">
+            <img src="./images/patrickschauer.jpg">
+        </section>
+
+        <section class="arrows">
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </section>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <p>
+        © 2021 | WDP3 Projekt | Lukas Artner & Patrick Schauer
+      </p>
+    </footer>
+  </body>
+</html>
