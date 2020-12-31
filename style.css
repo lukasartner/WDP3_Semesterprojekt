@@ -115,7 +115,6 @@
 ***************/
   
   .navigation {
-    width: 100%;
     height: 80px;
     padding: 12px;
     background-color:#172833;
@@ -296,7 +295,7 @@ input {
 }
 input:focus {
   outline: none;
-  color: dodgerblue;
+  color: #bb5f6b;
 }
 
 aside {
@@ -327,12 +326,7 @@ textarea {
 .button-xlarge {
   font-size: 125%;
 }
-button {
-  float: right;
-}
-#name, #GesuchtIst, #HintOne,	#HintTwo,	#HintThree,	#HintFour,	#Antwort,	#FalscherHinweis {
-  width: 50%;
-}
+
 .honeypot-field {
   display: none;
 }

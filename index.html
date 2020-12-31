@@ -7,13 +7,10 @@
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Ubuntu+Condensed&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
     <script defer src="script.js"></script>
   </head>
   <body>
@@ -31,9 +28,9 @@
       </section>
       <section>
           <div id="beforeGame">
-          <button id="newGame" type="button">Quiz starten</button>
-          <button id="showHighscore" type="button">Highscores anzeigen</button>
-          <button id="newQuestion" type="button">Neue Frage einreichen</button>
+          <button id="newGame" type="button" class="button-quiz" ><span>Quiz starten</span></button><br>
+          <button id="showHighscore" type="button" class="button-quiz"><span>Highscores anzeigen</span></button><br>
+          <button id="newQuestion" type="button" class="button-quiz"><span>Neue Frage einreichen</span></button>
         </div>
         <div id="runningGame" style="display: none;">
           <div id="Score">Score: 0</div><br>
@@ -83,47 +80,29 @@
             action="https://script.google.com/macros/s/AKfycbwnkBk02PNmX8LScODhUOeRDbT4rSlPMvRT8SE0/exec">
             <div class="form-elements">
 
-              <fieldset class="pure-group">
+
                 <label for="GesuchtIst">Was ist gesucht: </label>
                 <input id="GesuchtIst" name="GesuchtIst"/>
-              </fieldset>
 
-              <fieldset class="pure-group">
                 <label for="HintOne">Hinweis 1: </label>
                 <input id="HintOne" name="HintOne"/>
-              </fieldset>
               
-              <fieldset class="pure-group">
                 <label for="HintTwo">Hinweis 2: </label>
                 <input id="HintTwo" name="HintTwo"/>
-              </fieldset>
               
-              <fieldset class="pure-group">
                 <label for="HintThree">Hinweis 3: </label>
                 <input id="HintThree" name="HintThree"/>
-              </fieldset>
               
-              <fieldset class="pure-group">
                 <label for="HintFour">Hinweis 4: </label>
                 <input id="HintFour" name="HintFour"/>
-              </fieldset>
               
-              <fieldset class="pure-group">
                 <label for="Antwort">Antwort: </label>
                 <input id="Antwort" name="Antwort"/>
-              </fieldset>
               
-              <fieldset class="pure-group">
                 <label for="FalscherHinweis">Falscher Hinweis: </label>
                 <input id="FalscherHinweis" name="FalscherHinweis"/>
-              </fieldset>
 
-              <fieldset class="pure-group honeypot-field" style="display: none">
-                <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must
-                  be
-                  empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
-                <input id="submitQuestionhoneypot" type="text" name="honeypot" value="" />
-              </fieldset>
+                <input id="submitQuestionhoneypot" type="text" name="honeypot" value="" style="display: none"/>
 
               <button class="button-success pure-button button-xlarge" id="submitQuestion">
                 <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
