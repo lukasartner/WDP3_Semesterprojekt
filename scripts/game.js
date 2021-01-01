@@ -42,7 +42,8 @@ function startNewGame() {
   document.getElementById("logo").style.display = "none"
   document.getElementById("runningGame").style.display = "block"
   document.getElementById("clickMe").addEventListener("click", submitAnswer)
-  document.getElementById("hideWrongHintButton").addEventListener("click", HideWrongHint)
+  document.getElementById("hideWrongHintButton").addEventListener("click", hideWrongHint)
+  document.getElementById("nextQuestionButton").addEventListener("click", nextQuestion)
   score = INIT_SCORE;
   clearInterval(interval);
   game();
@@ -62,11 +63,19 @@ function fadeOutEffect() {
   }, 100);
 }
 
-function HideWrongHint() {
+function hideWrongHint() {
   if (document.getElementById(localGameArray[i].FalscherHinweis).style.visibility != "hidden") {
     document.getElementById(localGameArray[i].FalscherHinweis).style.visibility = "hidden";
-    if (points >= 100) points -= 100; else points = 0;
   }
+}
+
+function nextQuestion() {
+  clearInterval(interval);
+  resetPoints();
+  if (++i != undefined) {
+    game();
+    circularTimer()}
+  else finish();
 }
 
 function submitAnswer() {
@@ -78,14 +87,21 @@ function submitAnswer() {
     resetPoints();
     document.getElementById("Score").innerHTML = score;
     document.getElementById(localGameArray[i].FalscherHinweis).style.visibility = null;
-    i++;
+    if (++i != undefined) {
+    console.log(localGameArray[i]);
     game();
-    circularTimer();
+    circularTimer()}
+    else finish();
   } else {
     document.getElementById("runningGame").style.display = "none"
     document.getElementById("afterGame").style.display = "block";
   }
   ;
+}
+
+function finish(){
+  document.getElementById("runningGame").style.display = "none"
+  document.getElementById("afterGame").style.display = "block";
 }
 
 function game() {
@@ -137,7 +153,6 @@ document.getElementById("countdown").innerHTML = `
 
 function calculateTimeFraction() {
   const rawTimeFraction = points / INIT_POINTS;
-  console.log(rawTimeFraction)
   return rawTimeFraction - (1 / INIT_POINTS) * (1 - rawTimeFraction);
 }
     
@@ -146,7 +161,6 @@ function setCircleDasharray() {
   const circleDasharray = `${(
     calculateTimeFraction() * FULL_DASH_ARRAY
   ).toFixed(0)} 283`;
-  console.log(circleDasharray);
   document
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
@@ -155,7 +169,6 @@ function setCircleDasharray() {
 (function () {
   // get all data in form and return object
   function getFormData(form) {
-    console.log("getFormData");
     var elements = form.elements;
     var honeypot;
 
@@ -207,13 +220,11 @@ function setCircleDasharray() {
     }
 
     disableAllButtons(form);
-    console.log("disableAllButtons");
     var url = form.action;
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url);
     // xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    console.log("jetzt wird submitted")
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
         form.reset();
@@ -233,7 +244,6 @@ function setCircleDasharray() {
       return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
     }).join('&');
     xhr.send(encoded);
-    console.log("submission ist erledigt")
   }
 
   function loaded() {
@@ -246,7 +256,6 @@ function setCircleDasharray() {
   document.addEventListener("DOMContentLoaded", loaded, false);
 
   function disableAllButtons(form) {
-    console.log("disableAllButtons");
     var buttons = form.querySelectorAll("button");
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].disabled = true;
