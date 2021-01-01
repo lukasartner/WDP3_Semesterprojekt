@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script defer src="scripts/newQuestion.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
   </head>
   <body>
     <nav class="navigation">
@@ -29,30 +30,30 @@
 
 
             <label for="GesuchtIst">Was ist gesucht: </label>
-            <input id="GesuchtIst" name="GesuchtIst" />
+            <input id="GesuchtIst" name="GesuchtIst" autofocus required autocomplete="off"/>
             <br>
             <label for="HintOne">Hinweis 1: </label>
-            <input id="HintOne" name="HintOne" />
+            <input id="HintOne" name="HintOne" required autocomplete="off"/>
             <br>
 
             <label for="HintTwo">Hinweis 2: </label>
-            <input id="HintTwo" name="HintTwo" />
+            <input id="HintTwo" name="HintTwo" required autocomplete="off"/>
             <br>
 
             <label for="HintThree">Hinweis 3: </label>
-            <input id="HintThree" name="HintThree" />
+            <input id="HintThree" name="HintThree" required autocomplete="off"/>
             <br>
 
             <label for="HintFour">Hinweis 4: </label>
-            <input id="HintFour" name="HintFour" />
+            <input id="HintFour" name="HintFour" required autocomplete="off"/>
             <br>
 
             <label for="Antwort">Antwort: </label>
-            <input id="Antwort" name="Antwort" />
+            <input id="Antwort" name="Antwort" required autocomplete="off"/>
             <br>
 
             <label for="FalscherHinweis">Falscher Hinweis: </label>
-              <input type="radio" id="WrongHintOne" name="FalscherHinweis" value="HintOne">
+              <input type="radio" id="WrongHintOne" name="FalscherHinweis" value="HintOne" required>
               <label for="one"> Hinweis 1</label> 
               <input type="radio" id="WrongHintTwo" name="FalscherHinweis" value="HintTwo">
               <label for="two"> Hinweis 2</label>
@@ -61,12 +62,20 @@
               <input type="radio" id="WrongHintFour" name="FalscherHinweis" value="HintFour">
               <label for="four"> Hinweis 4</label> 
               <br>
+              
+              <label id="difficulty"></label> 
+              <div class="slidecontainer">
+                <input type="range" min="1" max="10" value="5" id="myRange" name="Schwierigkeit">
+              </div>
+              <br>
+              
 
             <input class="honeypot" id="questionHoneypot" type="text" name="honeypot" value="" />
 
-
-            <button class="button-success pure-button button-xlarge" id="submitQuestion">
-              <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+                
+            <button class="submit-button" id="submitQuestion" type="submit">
+            <i class="fa fa-paper-plane"></i>&nbsp;Abschicken
+             </button>
           </div>
 
           <!-- Customise the Thankyou Message People See when they submit the form: -->

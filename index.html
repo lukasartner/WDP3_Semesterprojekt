@@ -24,7 +24,7 @@
   <main class="page-main">
     <section>
       <p>
-        <img class="logo" src="./images/Logo.png" alt="Logo" />
+        <img id="logo" class="logo" src="./images/Logo.png" alt="Logo" />
       </p>
     </section>
     <section>
@@ -32,17 +32,23 @@
         <button id="newGame" type="button" class="button-quiz"><span>Quiz starten</span></button><br>
       </div>
       <div id="runningGame" style="display: none;">
-        <div id="Score">Score: 0</div><br>
-        <p id="lookingFor"></p>
         <p id="QuestionNumber"></p>
+        <p id="lookingFor"></p>
         <p id="HintOne"></p>
         <p id="HintTwo"></p>
         <p id="HintThree"></p>
         <p id="HintFour"></p>
-        <input id="answer" type="text" autocomplete="off" onkeyup="this.value = this.value.toUpperCase();" />
-        <button id="clickMe" type="button">Antwort einloggen</button></br>
-        <button id="joker" type="button">Blende falschen Hinweis aus</button>
-        <div id="points"></div>
+        <input id="answer" type="text" autocomplete="off" style="text-transform: uppercase;" autofocus/>
+        <button class="submit-button" id="clickMe" type="button">Antwort einloggen</button></br>
+        <button class="joker-button" id="hideWrongHintButton" type="submit">
+          <i class="fa fa-paper-plane"></i>
+        </button>
+        <button class="joker-button" id="submitQuestion" type="submit">
+          <i class="fa fa-paper-plane"></i>
+        </button>
+        <div id="countdown">
+        </div>
+        <div id="Score" class="score">0</div><br>
       </div>
       <div id="afterGame" style="display: none;">
         <form class="gform" method="POST" data-email="example@gmail.net"
