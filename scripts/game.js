@@ -72,7 +72,7 @@ function hideWrongHint() {
 function nextQuestion() {
   clearInterval(interval);
   resetPoints();
-  if (++i != undefined) {
+  if (localGameArray[++i] != undefined) {
     game();
     circularTimer()}
   else finish();
@@ -87,7 +87,7 @@ function submitAnswer() {
     resetPoints();
     document.getElementById("Score").innerHTML = score;
     document.getElementById(localGameArray[i].FalscherHinweis).style.visibility = null;
-    if (++i != undefined) {
+    if (localGameArray[++i] != undefined) {
     console.log(localGameArray[i]);
     game();
     circularTimer()}

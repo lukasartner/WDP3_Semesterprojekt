@@ -6,16 +6,23 @@
 let modal1 = document.getElementById("modal-beschreibung");
 let modal2 = document.getElementById("modal-details");
 let modal3 = document.getElementById("modal-technologien");
+let modal4 = document.getElementById("modal-lukas");
+let modal5 = document.getElementById("modal-patrick");
 
 // Get the button that opens the modal
 let btn1 = document.getElementById("button-beschreibung");
 let btn2 = document.getElementById("button-details");
 let btn3 = document.getElementById("button-technologien");
+let btn4 = document.getElementById("button-lukas");
+let btn5 = document.getElementById("button-patrick");
 
 // Get the <span> element that closes the modal
-let span1 = document.getElementById("close-beschreibung");//[0];
-let span2 = document.getElementById("close-details");//[0];
-let span3 = document.getElementById("close-technologien");//[0];
+let span1 = document.getElementById("close-beschreibung");
+let span2 = document.getElementById("close-details");
+let span3 = document.getElementById("close-technologien");
+let span4 = document.getElementById("close-lukas");
+let span5 = document.getElementById("close-patrick");
+
 
 // When the user clicks on the button, open the modal
 btn1.onclick = function() {
@@ -26,6 +33,12 @@ btn2.onclick = function() {
   }
 btn3.onclick = function() {
     modal3.style.display = "block";
+  }
+btn4.onclick = function() {
+    modal4.style.display = "block";
+  }
+btn5.onclick = function() {
+    modal5.style.display = "block";
   }
 
 // When the user clicks on <span> (x), close the modal
@@ -38,6 +51,12 @@ span2.onclick = function() {
 span3.onclick = function() {
     modal3.style.display = "none";
   }
+span4.onclick = function() {
+    modal4.style.display = "none";
+  }
+span5.onclick = function() {
+    modal5.style.display = "none";
+  }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -49,6 +68,12 @@ window.onclick = function(event) {
   } 
   else if (event.target == modal3) {
     modal3.style.display = "none";
+  } 
+  else if (event.target == modal4) {
+    modal4.style.display = "none";
+  } 
+  else if (event.target == modal5) {
+    modal5.style.display = "none";
   } 
 }
 
@@ -72,7 +97,7 @@ function currentSlide(n) {
 // Function for manual slide
 function showSlides(n) {
   let i;
-  let slides = document.getElementsByClassName("mySlides");
+  let slides = document.getElementsByClassName("slide");
   let dots = document.getElementsByClassName("dot");
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
@@ -91,7 +116,7 @@ showSlidesAuto();
 
 function showSlidesAuto() {
   let i;
-  let slides = document.getElementsByClassName("mySlides");
+  let slides = document.getElementsByClassName("slide");
   let dots = document.getElementsByClassName("dot");
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
