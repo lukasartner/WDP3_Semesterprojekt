@@ -349,9 +349,72 @@
   }
 }
 
+@media screen and (min-width: 650px) {
+    .dropdown {
+      visibility: hidden;
+      position: absolute;
+    }
+  }
+
 @media screen and (max-width: 650px) {
+  .navigation {
+    margin-left: auto;
+  }
+
   .nav-logo {
     visibility: hidden;
+  }
+
+  .nav-item {
+    visibility: hidden;
+  }
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    margin-left: auto;
+  }
+
+  /* Dropdown Icon */
+  .menu-icon {
+    width: 40px;
+    height: 5px;
+    background-color: #ffffff;
+    margin: 6px 0;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffffc0;
+    min-width: 160px;
+    padding-bottom: 16px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.7);
+    z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: #000000;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 12px 5px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #4c606d;
+    color: #ffffff;
+  }
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
   }
 
   .row-team {
@@ -360,20 +423,20 @@
 }
 
 @media screen and (min-width: 400px) {
-  .navigation {
-    display: flex;
-    justify-content: flex-end;
-  }
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+}
 
-  .nav-item:first-child {
-    margin-right: auto;
-  }
+.nav-item:first-child {
+  margin-right: auto;
+}
 
-  .column-team {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
+.column-team {
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+}
 
 @media screen and (min-width: 1300px) {
   .row-team {
