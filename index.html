@@ -89,7 +89,7 @@
           <input id="answer" class="answer" type="text" autocomplete="off" style="text-transform: uppercase;"
             autofocus />
           <button class="submit-answer" id="submitAnswer" type="button">
-            <svg class="checkmark" version="1.1" id="checkmark" xmlns="http://www.w3.org/2000/svg"
+            <svg class="checkmark deskew10deg" version="1.1" id="checkmark" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500"
               style="enable-background:new 0 0 500 500;" xml:space="preserve">
               <path d="M249.96,0.77C112.09,0.77,0.32,112.53,0.32,250.4s111.77,249.64,249.64,249.64S499.59,388.27,499.59,250.4
@@ -110,11 +110,12 @@
       </div>
       <div id="afterGame" style="display: none;">
       <div class="your-score-container" id="yourScoreContainer">
-        <div class="your-score" id="yourScore"></div>
+        <span class="score-message" id="scoreMessage"></span><br>
+        <span class="your-score" id="yourScore"></span>
       </div>
-      <form class="gform" method="POST" data-email="example@gmail.net"
+      <form class="gform" method="POST"
         action="https://script.google.com/macros/s/AKfycbyW4VRoai7bu6la9B7vvg1b7F-gZBWy7cBZi3URS58xkr4CRp75/exec">
-        <div class="form-elements">
+        <div class="form-elements score-form">
           <input class="new-score-input" id="name" type="text" name="Name" required autocomplete="off"
             placeholder="Name" />
 
@@ -122,8 +123,17 @@
 
           <input class="honeypot" id="scoreHoneypot" type="text" name="honeypot" value="" />
 
-          <button class="button-success pure-button button-xlarge" id="submitScore">
-            <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+          <button class="score-submit-button" id="submitScore">
+            <svg class="checkmark" version="1.1" id="checkmark" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500"
+            style="enable-background:new 0 0 500 500;" xml:space="preserve">
+            <path d="M249.96,0.77C112.09,0.77,0.32,112.53,0.32,250.4s111.77,249.64,249.64,249.64S499.59,388.27,499.59,250.4
+S387.83,0.77,249.96,0.77z M249.59,470.8c-121.81,0-220.56-98.75-220.56-220.56S127.78,29.68,249.59,29.68
+s220.56,98.75,220.56,220.56S371.4,470.8,249.59,470.8z" />
+            <polygon points="55.69,251.74 92.07,223.5 169,322.6 404.25,139.98 432.49,176.36 160.87,387.22 " />
+          </svg>
+
+          </button>
         </div>
         <div class="thankyou_message" style="display:none;">
           <h2>Ergebnis erfolgreich eingereicht</h2>

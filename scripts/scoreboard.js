@@ -27,7 +27,7 @@ function buildHtmlTable(selector) {
         if (cellValue == null) cellValue = "";
         row$.append($(`<td class="column${columns[colIndex]}"/>`).html(cellValue));
       }
-      row$.append($('<td class="columnRatio"/>').html(localScoreboardArray[i][columns[2]] / highestScore));
+      row$.append($('<td class="columnRatio"/>').html(Math.floor(localScoreboardArray[i][columns[2]] / highestScore * 100) + "%"));
       $(selector).append(row$);
     }
   }

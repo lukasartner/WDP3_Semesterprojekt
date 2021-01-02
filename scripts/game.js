@@ -114,15 +114,20 @@ function submitAnswer() {
       game();
       circularTimer()
     }
-    else finish();
-  } else finish()
+    else {
+      document.getElementById("scoreMessage").innerHTML = `Durchgespielt!<br>Herzlichen Glückwunsch`;
+      finish();
+    } 
+  } else {
+      document.getElementById("scoreMessage").innerHTML = "Falsche Antwort";
+      finish()
+    }
 }
 
 function finish() {
   document.getElementById("runningGame").style.display = "none"
   document.getElementById("afterGame").style.display = "block";
-  document.getElementById("yourScore").innerHTML = `Ergebnis: ${score} Punkte`;
-
+  document.getElementById("yourScore").innerHTML = `Du hast ${score} Punkte erreicht!`;
 }
 
 function game() {
