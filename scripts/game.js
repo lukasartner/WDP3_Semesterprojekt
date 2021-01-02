@@ -106,7 +106,7 @@ function submitAnswer() {
     console.log(points);
     score += points;
     resetPoints();
-    document.getElementById("Score").innerHTML = score;
+    document.getElementById("currentScore").innerHTML = score;
     document.getElementById(localGameArray[i].FalscherHinweis).style.visibility = null;
     if (localGameArray[++i] != undefined) {
     console.log(localGameArray[i]);
@@ -126,7 +126,7 @@ function finish(){
 }
 
 function game() {
-  document.getElementById("QuestionNumber").innerHTML = "Frage " + (i + 1);
+  document.getElementById("QuestionNumber").innerHTML = `<div class="question-number-text">Frage ${i + 1}</div>`;
   document.getElementById("lookingFor").innerHTML = createLookingForText(localGameArray[i].GesuchtIst);
   document.getElementById("HintOne").innerHTML = createHintText(localGameArray[i].HintOne);
   document.getElementById("HintTwo").innerHTML = createHintText(localGameArray[i].HintTwo);

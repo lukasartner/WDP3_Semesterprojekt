@@ -45,8 +45,8 @@
       <div id="beforeGame">
         <button id="newGame" type="button" class="button-quiz"><span>Quiz starten</span></button><br>
       </div>
-      <div id="runningGame" style="display: none;">
-        <p id="QuestionNumber" class="question-number-class"></p>
+      <div id="runningGame" class="running-game" style="display: none;">
+        <p id="QuestionNumber" class="question-number-container"></p>
         <p id="lookingFor" class="looking-for-class"></p>
         <p id="HintOne" class="hint-class"></p>
         <p id="HintTwo" class="hint-class"></p>
@@ -82,7 +82,7 @@
           
         </button>
         <div class="submission">
-        <input id="answer" type="text" autocomplete="off" style="text-transform: uppercase;" autofocus/>
+        <input id="answer" class="answer" type="text" autocomplete="off" style="text-transform: uppercase;" autofocus/>
         <button class="submit-answer" id="submitAnswer" type="button">
           <svg class="checkmark" version="1.1" id="checkmark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
@@ -93,11 +93,14 @@
 </svg>
 
         </button></div></br>
-
-        <div id="countdown">
+      <div id="score" class="score">
+        <div id="countdown" class="countdown">
         </div>
-        <div id="Score" class="score">0</div><br>
+        <div class="current-score-container">
+        <div id="currentScore" class="current-score">0</div><br>
       </div>
+      </div>
+    </div>
       <div id="afterGame" style="display: none;">
         <form class="gform" method="POST" data-email="example@gmail.net"
           action="https://script.google.com/macros/s/AKfycbyW4VRoai7bu6la9B7vvg1b7F-gZBWy7cBZi3URS58xkr4CRp75/exec">
