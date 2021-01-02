@@ -866,7 +866,7 @@ text-shadow: 0 0 6px white;
   /* Flips the svg and makes the animation to move left-to-right */
   transform: scaleX(-1);
 };
-}
+
 
 .base-timer__svg {
   /* Flips the svg and makes the animation to move left-to-right */

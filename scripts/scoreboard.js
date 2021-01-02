@@ -19,14 +19,15 @@ function initScoreboard() {
 
 function buildHtmlTable(selector) {
     var columns = addAllColumnHeaders(localScoreboardArray, selector);
-  
+    const highestScore = localScoreboardArray[0][columns[2]];
     for (var i = 0; i < scoresToDisplay; i++) {
       var row$ = $('<tr/>');
       for (var colIndex = 0; colIndex < columns.length; colIndex++) {
         var cellValue = localScoreboardArray[i][columns[colIndex]];
         if (cellValue == null) cellValue = "";
-        row$.append($('<td/>').html(cellValue));
+        row$.append($(`<td class="column${columns[colIndex]}"/>`).html(cellValue));
       }
+      row$.append($('<td class="columnRatio"/>').html(localScoreboardArray[i][columns[2]] / highestScore));
       $(selector).append(row$);
     }
   }
@@ -43,10 +44,11 @@ function buildHtmlTable(selector) {
       for (var key in rowHash) {
         if ($.inArray(key, columnSet) == -1) {
           columnSet.push(key);
-          headerTr$.append($('<th/>').html(key));
+          headerTr$.append($(`<th class="column${key}"/>`).html(key));
         }
       }
     }
+    headerTr$.append($('<th class="columnRatio"/>').html("Ratio"));
     $(selector).append(headerTr$);
   
     return columnSet;
