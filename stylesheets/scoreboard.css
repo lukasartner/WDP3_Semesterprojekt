@@ -1,0 +1,33 @@
+/*************
+* Scoreboard *
+*************/
+
+  .table {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  tr:first-child {
+    background-color: #bb5f6b;
+    font-size: min(3vw, 25px);
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 15px;
+  }
+  
+  tr:nth-child(2n+3) {
+    background-color: #69696977;
+  }
+  
+  tr:nth-child(2n+2) {
+    background-color: #dbd9d977;
+  }
+  
+  td {
+    font-size: min(2vw, 18px);
+    padding-left: 8vw;
+    padding-right: 8vw;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  

@@ -1,173 +1,156 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <title>WDP3 Projekt | Neue Frage einreichen</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Ubuntu+Condensed&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="/stylesheets/newQuestion.css">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script defer src="scripts/newQuestion.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-  </head>
-  <body>
-    
-    <nav class="navigation">
-      <section id="menuToggle">
-        <input type="checkbox"/>
-          <span></span>
-          <span></span>
-          <span></span>
-        <ul id="menu" class="menu-items">
-          <li><a href="./index.html" class="mobile-item">Quiz</a></li>
-          <li><a href="./scoreboard.html" class="mobile-item">Scoreboard</a></li>
-          <li><a href="./newQuestion.html" class="mobile-item">Neue Frage einreichen</a></li>
-          <li><a href="./projekt.html" class="mobile-item">Projekt</a></li>
-        </ul>
-      </section>
-
-      <a class="nav-logo" href="./index.html"><img src="./images/Logo-Menu.png" alt="Logo small"></a>
-
-      <a href="./index.html" class="nav-item">Quiz</a>
-      <a href="./scoreboard.html" class="nav-item">Scoreboard</a>
-      <a href="./newQuestion.html" class="nav-item">Neue Frage einreichen</a>
-      <a href="./projekt.html" class="nav-item">Projekt</a>
-    </nav>
-    
-    <main class="page-main">
-        <h1>Neue Frage einreichen</h1>
-        <section>
-          <form class="gform" method="POST" data-email="example@gmail.net"
-          action="https://script.google.com/macros/s/AKfycbwdRAf4zZsDEeK7uyW4MRnVJqmCfg66X2jKLoyittpbSld1d6w/exec">
-          <div class="form-elements">
-
-
-            <input class="new-Question-input" id="GesuchtIst" name="GesuchtIst" autofocus required autocomplete="off" placeholder="Was ist gesucht?"/>
-            <br>
-            <input class="new-Question-input" id="HintOne" name="HintOne" required autocomplete="off" placeholder="Hinweis 1"/>
-            <br>
-
-            <input class="new-Question-input" id="HintTwo" name="HintTwo" required autocomplete="off" placeholder="Hinweis 2"/>
-            <br>
-
-            <input class="new-Question-input" id="HintThree" name="HintThree" required autocomplete="off" placeholder="Hinweis 3"/>
-            <br>
-
-            <input class="new-Question-input" id="HintFour" name="HintFour" required autocomplete="off" placeholder="Hinweis 4"/>
-            <br>
-
-            <input class="new-Question-input" id="Antwort" name="Antwort" required autocomplete="off" placeholder="Antwort"/>
-            <br>
-
-            <div class="radio-buttons"><label for="FalscherHinweis" class="rb-label">Falscher Hinweis</label>
-            
-              <input id="WrongHint" class="WrongHint" name="FalscherHinweis" value="HintOne" required style="display: none;">
-                <div class="rb-tab wrong-hint rb-tab-active" name="FalscherHinweis" data-value="HintOne">
-                  <div class="rb-spot">
-                    <span class="rb-txt">1</span>
+   <head>
+      <meta charset="utf-8" />
+      <title>WDP3 Projekt | Neue Frage einreichen</title>
+      <link
+         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Ubuntu+Condensed&display=swap"
+         rel="stylesheet"
+         />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="/stylesheets/style.css">
+      <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+      <link rel="stylesheet" href="/stylesheets/newQuestion.css">
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+      <script defer src="scripts/newQuestion.js"></script>
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+   </head>
+   <body>
+      <nav class="navigation">
+         <section id="menuToggle">
+            <input type="checkbox"/>
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu" class="menu-items">
+               <li><a href="./index.html" class="mobile-item">Quiz</a></li>
+               <li><a href="./scoreboard.html" class="mobile-item">Scoreboard</a></li>
+               <li><a href="./newQuestion.html" class="mobile-item">Neue Frage einreichen</a></li>
+               <li><a href="./project.html" class="mobile-item">Projekt</a></li>
+            </ul>
+         </section>
+         <a class="nav-logo" href="./index.html"><img src="./images/Logo-Menu.png" alt="Logo small"></a>
+         <a href="./index.html" class="nav-item">Quiz</a>
+         <a href="./scoreboard.html" class="nav-item">Scoreboard</a>
+         <a href="./newQuestion.html" class="nav-item">Neue Frage einreichen</a>
+         <a href="./project.html" class="nav-item">Projekt</a>
+      </nav>
+      <main class="page-main">
+         <h1>Neue Frage einreichen</h1>
+         <section>
+            <form class="gform" method="POST" data-email="example@gmail.net"
+               action="https://script.google.com/macros/s/AKfycbwdRAf4zZsDEeK7uyW4MRnVJqmCfg66X2jKLoyittpbSld1d6w/exec">
+               <div class="form-elements">
+                  <input class="new-Question-input" id="GesuchtIst" name="GesuchtIst" autofocus required autocomplete="off" placeholder="Was ist gesucht?"/>
+                  <br>
+                  <input class="new-Question-input" id="HintOne" name="HintOne" required autocomplete="off" placeholder="Hinweis 1"/>
+                  <br>
+                  <input class="new-Question-input" id="HintTwo" name="HintTwo" required autocomplete="off" placeholder="Hinweis 2"/>
+                  <br>
+                  <input class="new-Question-input" id="HintThree" name="HintThree" required autocomplete="off" placeholder="Hinweis 3"/>
+                  <br>
+                  <input class="new-Question-input" id="HintFour" name="HintFour" required autocomplete="off" placeholder="Hinweis 4"/>
+                  <br>
+                  <input class="new-Question-input" id="Antwort" name="Antwort" required autocomplete="off" placeholder="Antwort"/>
+                  <br>
+                  <div class="radio-buttons">
+                     <label for="FalscherHinweis" class="rb-label">Falscher Hinweis</label>
+                     <input id="WrongHint" class="WrongHint" name="FalscherHinweis" value="HintOne" required style="display: none;">
+                     <div class="rb-tab wrong-hint rb-tab-active" name="FalscherHinweis" data-value="HintOne">
+                        <div class="rb-spot">
+                           <span class="rb-txt">1</span>
+                        </div>
+                     </div>
+                     <div class="rb-tab wrong-hint" name="FalscherHinweis" data-value="HintTwo">
+                        <div class="rb-spot">
+                           <span class="rb-txt">2</span>
+                        </div>
+                     </div>
+                     <div class="rb-tab wrong-hint" name="FalscherHinweis" data-value="HintThree">
+                        <div class="rb-spot">
+                           <span class="rb-txt">3</span>
+                        </div>
+                     </div>
+                     <div class="rb-tab wrong-hint" name="FalscherHinweis" data-value="HintFour">
+                        <div class="rb-spot">
+                           <span class="rb-txt">4</span>
+                        </div>
+                     </div>
                   </div>
-                </div>
-                <div class="rb-tab wrong-hint" name="FalscherHinweis" data-value="HintTwo">
-                  <div class="rb-spot">
-                    <span class="rb-txt">2</span>
+                  <br>
+                  <div class="radio-buttons">
+                     <label for="Schwierigkeit" class="rb-label">Schwierigkeit</label>
+                     <input id="difficulty" class="difficulty" name="Schwierigkeit" value="1" required style="display: none;">
+                     <div class="rb-tab difficulty-rb rb-tab-active" id="myRange" name="Schwierigkeit" data-value="1">
+                        <div class="rb-spot">
+                           <span class="rb-txt">1</span>
+                        </div>
+                     </div>
+                     <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="2">
+                        <div class="rb-spot">
+                           <span class="rb-txt">2</span>
+                        </div>
+                     </div>
+                     <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="3">
+                        <div class="rb-spot">
+                           <span class="rb-txt">3</span>
+                        </div>
+                     </div>
+                     <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="4">
+                        <div class="rb-spot">
+                           <span class="rb-txt">4</span>
+                        </div>
+                     </div>
+                     <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="5">
+                        <div class="rb-spot">
+                           <span class="rb-txt">5</span>
+                        </div>
+                     </div>
+                     <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="6">
+                        <div class="rb-spot">
+                           <span class="rb-txt">6</span>
+                        </div>
+                     </div>
+                     <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="7">
+                        <div class="rb-spot">
+                           <span class="rb-txt">7</span>
+                        </div>
+                     </div>
+                     <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="8">
+                        <div class="rb-spot">
+                           <span class="rb-txt">8</span>
+                        </div>
+                     </div>
+                     <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="9">
+                        <div class="rb-spot">
+                           <span class="rb-txt">9</span>
+                        </div>
+                     </div>
+                     <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="10">
+                        <div class="rb-spot">
+                           <span class="rb-txt">10</span>
+                        </div>
+                     </div>
                   </div>
-                </div>
-                <div class="rb-tab wrong-hint" name="FalscherHinweis" data-value="HintThree">
-                  <div class="rb-spot">
-                    <span class="rb-txt">3</span>
-                  </div>
-                </div>
-                <div class="rb-tab wrong-hint" name="FalscherHinweis" data-value="HintFour">
-                  <div class="rb-spot">
-                    <span class="rb-txt">4</span>
-                  </div>
-                </div>
-              </div>
-                <br>
-
-              
-                <div class="radio-buttons"><label for="Schwierigkeit" class="rb-label">Schwierigkeit</label>
-                <input id="difficulty" class="difficulty" name="Schwierigkeit" value="1" required style="display: none;">
-                <div class="rb-tab difficulty-rb rb-tab-active" id="myRange" name="Schwierigkeit" data-value="1">
-                  <div class="rb-spot">
-                    <span class="rb-txt">1</span>
-                  </div>
-                </div>
-                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="2">
-                  <div class="rb-spot">
-                    <span class="rb-txt">2</span>
-                  </div>
-                </div>
-                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="3">
-                  <div class="rb-spot">
-                    <span class="rb-txt">3</span>
-                  </div>
-                </div>
-                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="4">
-                  <div class="rb-spot">
-                    <span class="rb-txt">4</span>
-                  </div>
-                </div>
-                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="5">
-                  <div class="rb-spot">
-                    <span class="rb-txt">5</span>
-                  </div>
-                </div>
-                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="6">
-                  <div class="rb-spot">
-                    <span class="rb-txt">6</span>
-                  </div>
-                </div>
-                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="7">
-                  <div class="rb-spot">
-                    <span class="rb-txt">7</span>
-                  </div>
-                </div>
-                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="8">
-                  <div class="rb-spot">
-                    <span class="rb-txt">8</span>
-                  </div>
-                </div>
-                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="9">
-                  <div class="rb-spot">
-                    <span class="rb-txt">9</span>
-                  </div>
-                </div>
-                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="10">
-                  <div class="rb-spot">
-                    <span class="rb-txt">10</span>
-                  </div>
-                </div>
-              </div>
-              <br>
-            </div>
-            <br>
-              
-
-            <input class="honeypot" id="questionHoneypot" type="text" name="honeypot" value="" />
-
-                
-            <button class="submit-button" id="submitQuestion" type="submit">
-            <i class="fa fa-paper-plane"></i>&nbsp;Abschicken
-             </button>
-          </div>
-
-          <!-- Customise the Thankyou Message People See when they submit the form: -->
-          <div class="thankyou_message" style="display:none;">
-            <h2>Vielen Dank für die Einreichung der Frage!</h2>
-          </div>
-        </form>
-        </section>
-    </main>
-    <footer class="page-footer">
-      <p>
-        © 2021 | WDP3 Projekt | Lukas Artner & Patrick Schauer
-      </p>
-    </footer>
-  </body>
+                  <br>
+               </div>
+               <br>
+               <input class="honeypot" id="questionHoneypot" type="text" name="honeypot" value="" />
+               <button class="submit-button" id="submitQuestion" type="submit">
+               <i class="fa fa-paper-plane"></i>&nbsp;Abschicken
+               </button>
+               </div>
+               <!-- Customise the Thankyou Message People See when they submit the form: -->
+               <div class="thankyou_message" style="display:none;">
+                  <h2>Vielen Dank für die Einreichung der Frage!</h2>
+               </div>
+            </form>
+         </section>
+      </main>
+      <footer class="page-footer">
+         <p>
+            © 2021 | WDP3 Projekt | Lukas Artner & Patrick Schauer
+         </p>
+      </footer>
+   </body>
 </html>

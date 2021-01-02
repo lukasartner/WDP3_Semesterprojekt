@@ -1,54 +1,51 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <title>WDP3 Projekt | Scoreboard</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Ubuntu+Condensed&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="/favicon.png" type="image/x-icon">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script defer src="scripts/scoreboard.js"></script>
-  </head>
-  <body>
-    
-    <nav class="navigation">
-    <section id="menuToggle">
-      <input type="checkbox"/>
-        <span></span>
-        <span></span>
-        <span></span>
-      <ul id="menu" class="menu-items">
-        <li><a href="./index.html" class="mobile-item">Quiz</a></li>
-        <li><a href="./scoreboard.html" class="mobile-item">Scoreboard</a></li>
-        <li><a href="./newQuestion.html" class="mobile-item">Neue Frage einreichen</a></li>
-        <li><a href="./projekt.html" class="mobile-item">Projekt</a></li>
-      </ul>
-    </section>
-
-    <a class="nav-logo" href="./index.html"><img src="./images/Logo-Menu.png" alt="Logo small"></a>
-     
-    <a href="./index.html" class="nav-item">Quiz</a>
-    <a href="./scoreboard.html" class="nav-item">Scoreboard</a>
-    <a href="./newQuestion.html" class="nav-item">Neue Frage einreichen</a>
-    <a href="./projekt.html" class="nav-item">Projekt</a>
-  </nav>
-    
-    <main class="page-main">
-        <h1>Scoreboard</h1>
-        <section>
+   <head>
+      <meta charset="utf-8" />
+      <title>WDP3 Projekt | Scoreboard</title>
+      <link
+         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Ubuntu+Condensed&display=swap"
+         rel="stylesheet"
+         />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="/stylesheets/style.css">
+      <link rel="stylesheet" href="/stylesheets/scoreboard.css">
+      <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+      <script defer src="scripts/scoreboard.js"></script>
+   </head>
+   <body>
+      <nav class="navigation">
+         <section id="menuToggle">
+            <input type="checkbox"/>
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu" class="menu-items">
+               <li><a href="./index.html" class="mobile-item">Quiz</a></li>
+               <li><a href="./scoreboard.html" class="mobile-item">Scoreboard</a></li>
+               <li><a href="./newQuestion.html" class="mobile-item">Neue Frage einreichen</a></li>
+               <li><a href="./project.html" class="mobile-item">Projekt</a></li>
+            </ul>
+         </section>
+         <a class="nav-logo" href="./index.html"><img src="./images/Logo-Menu.png" alt="Logo small"></a>
+         <a href="./index.html" class="nav-item">Quiz</a>
+         <a href="./scoreboard.html" class="nav-item">Scoreboard</a>
+         <a href="./newQuestion.html" class="nav-item">Neue Frage einreichen</a>
+         <a href="./project.html" class="nav-item">Projekt</a>
+      </nav>
+      <main class="page-main">
+         <h1>Scoreboard</h1>
+         <section>
             <table id="excelDataTable" class="table">
             </table>
-        </section>
-    </main>
-    <footer class="page-footer">
-      <p>
-        © 2021 | WDP3 Projekt | Lukas Artner & Patrick Schauer
-      </p>
-    </footer>
-  </body>
+         </section>
+      </main>
+      <footer class="page-footer">
+         <p>
+            © 2021 | WDP3 Projekt | Lukas Artner & Patrick Schauer
+         </p>
+      </footer>
+   </body>
 </html>

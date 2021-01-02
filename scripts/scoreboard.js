@@ -8,13 +8,12 @@ function initScoreboard() {
             download: true,
           header: true,
           complete: function(results) {
-            localScoreboardArray = results.data
-            console.log(localScoreboardArray)
-            document.getElementById("excelDataTable").innerHTML = ""
-            buildHtmlTable('#excelDataTable')
+            localScoreboardArray = results.data;
+            document.getElementById("excelDataTable").innerHTML = "";
+            buildHtmlTable('#excelDataTable');
           }
-        })
-};
+        });
+}
 
 
 function buildHtmlTable(selector) {
@@ -25,12 +24,26 @@ function buildHtmlTable(selector) {
       var row$ = $('<tr/>');
       for (var colIndex = 0; colIndex < columns.length; colIndex++) {
         var cellValue = localScoreboardArray[i][columns[colIndex]];
-        if (cellValue == null) cellValue = "";
+        if (cellValue === null) cellValue = "";
         row$.append($(`<td class="column${columns[colIndex]}"/>`).html(cellValue));
       }
       scorePct = Math.floor(localScoreboardArray[i][columns[2]] / highestScore * 100) + "%";
-      row$.append($(`<td class="columnRatio RatioRow${i}" style="position: relative;"\>`).html(`<div style="width: ${scorePct}; height: 100%; background: #a2a2a2; margin: 0px; padding: 0px; position: absolute; top: 0; left: 0; border-right: solid 2px #565656;">${scorePct}</div>`));
-      //style="width:${scorePct}; background='red'/>
+      row$.append($(`
+        <td class="columnRatio RatioRow${i}" style="position: relative;"\>`
+        ).html(`
+          <div style="width: ${scorePct};
+                      height: 100%;
+                      background: #a2a2a2;
+                      margin: 0px;
+                      padding: 0px;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      border-right: solid 2px #565656;">
+              ${scorePct}
+          </div>
+        `)
+      );
       $(selector).append(row$);
     }
   }
