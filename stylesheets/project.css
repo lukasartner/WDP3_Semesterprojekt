@@ -59,6 +59,11 @@
 
   .vercel-link {
     color: #000000;
+    font-weight: bold;
+  }
+
+  .vercel-link:hover {
+    text-decoration: underline;
   }
   
   .modal {
