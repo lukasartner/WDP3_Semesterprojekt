@@ -521,7 +521,7 @@
   #menuToggle input:checked ~ ul {
     transform: none;
   }
-
+}
 
 aside {
     background: #1f8dd6; /* same color as selected state on site menu */
