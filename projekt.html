@@ -8,32 +8,30 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <script defer src="scripts/menu.js"></script>
     <script defer src="scripts/project.js"></script>
   </head>
   <body>
     <nav class="navigation">
-      <section class="dropdown">
-        <button onclick="menuFunction()" class="button-dropdown">
-          <div class="menu-icon"></div>
-          <div class="menu-icon"></div>
-          <div class="menu-icon"></div>
-        </button>
-        <section id="menu-dropdown" class="dropdown-content">
-          <a href="./index.html">Quiz</a>
-          <a href="./scoreboard.html">Scoreboard</a>
-          <a href="./newQuestion.html">Neue Frage einreichen</a>
-          <a href="./projekt.html">Projekt</a>
-        </section>
+      <section id="menuToggle">
+        <input type="checkbox"/>
+          <span></span>
+          <span></span>
+          <span></span>
+        <ul id="menu" class="menu-items">
+          <li><a href="./index.html" class="mobile-item">Quiz</a></li>
+          <li><a href="./scoreboard.html" class="mobile-item">Scoreboard</a></li>
+          <li><a href="./newQuestion.html" class="mobile-item">Neue Frage einreichen</a></li>
+          <li><a href="./projekt.html" class="mobile-item">Projekt</a></li>
+        </ul>
       </section>
 
-    <a class="nav-logo" href="./index.html"><img src="./images/Logo-Menu.png" alt="Logo small"></a>
-     
-    <a href="./index.html" class="nav-item">Quiz</a>
-    <a href="./scoreboard.html" class="nav-item">Scoreboard</a>
-    <a href="./newQuestion.html" class="nav-item">Neue Frage einreichen</a>
-    <a href="./projekt.html" class="nav-item">Projekt</a>
-  </nav>
+      <a class="nav-logo" href="./index.html"><img src="./images/Logo-Menu.png" alt="Logo small"></a>
+
+      <a href="./index.html" class="nav-item">Quiz</a>
+      <a href="./scoreboard.html" class="nav-item">Scoreboard</a>
+      <a href="./newQuestion.html" class="nav-item">Neue Frage einreichen</a>
+      <a href="./projekt.html" class="nav-item">Projekt</a>
+    </nav>
     <main class="page-main">
       <h1>Projekt</h1>
       <h2>Team</h2>  
