@@ -573,7 +573,7 @@ svg circle {
 
   /* Sort of an arbitrary number; adjust to your liking */
   font-size: 30px;
-  color: #bb5f6b;
+  color: #d3cfd1;
 }
 
 .base-timer__path-remaining {
@@ -591,7 +591,7 @@ svg circle {
   transition: 1s linear all;
 
   /* Allows the ring to change color when the color value updates */
-  stroke: #bb5f6b;
+  stroke: #480928;
 }
 
 .base-timer__svg {
