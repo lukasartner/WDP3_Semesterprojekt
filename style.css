@@ -389,6 +389,11 @@
     height: 100%;
     margin-left: auto;
   }
+ 
+ /* Dropdown button on hover & focus */
+  .dropdown-button:hover, .dropdown-button:focus {
+    background-color: #2980B9;
+  }
 
   /* Dropdown Icon */
   .menu-icon {
@@ -427,6 +432,11 @@
 
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {
+    display: block;
+  }
+ 
+  /* Show the dropdown menu on hover */
+  .show {
     display: block;
   }
 
