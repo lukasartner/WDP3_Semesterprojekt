@@ -6,10 +6,13 @@ let i = 0;
 let localGameArray;
 let points;
 let interval;
+let hideWrongHintAvailable = true
+let nextQuestionAvailable = true
 
 let gameURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6Tr6qirvN9nEfFtNrOO7qzIDEE5Aj7tc8D_MhVOgPiNkkUXuYRT7mOFwu6Wt08eMaT_9yi66XV8Vf/pub?output=csv';
 
 function initGame() {
+  document.getElementById("newGame").disabled = true;
   Papa.parse(gameURL, {
     download: true,
     header: true,
@@ -26,7 +29,7 @@ window.onload = function () {
   document.getElementById("answer").addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
       event.preventDefault();
-      document.getElementById("clickMe").click();
+      document.getElementById("submitAnswer").click();
     }
   });
   circularTimer();
@@ -39,9 +42,9 @@ function resetPoints() {
 
 function startNewGame() {
   document.getElementById("beforeGame").style.display = "none"
-  document.getElementById("logo").style.display = "none"
+  document.getElementById("logoSection").style.display = "none"
   document.getElementById("runningGame").style.display = "block"
-  document.getElementById("clickMe").addEventListener("click", submitAnswer)
+  document.getElementById("submitAnswer").addEventListener("click", submitAnswer)
   document.getElementById("hideWrongHintButton").addEventListener("click", hideWrongHint)
   document.getElementById("nextQuestionButton").addEventListener("click", nextQuestion)
   score = INIT_SCORE;
@@ -64,18 +67,36 @@ function fadeOutEffect() {
 }
 
 function hideWrongHint() {
-  if (document.getElementById(localGameArray[i].FalscherHinweis).style.visibility != "hidden") {
+  console.log("Button clicked")
+  if (document.getElementById(localGameArray[i].FalscherHinweis).style.visibility != "hidden" && hideWrongHintAvailable) {
     document.getElementById(localGameArray[i].FalscherHinweis).style.visibility = "hidden";
+    hideWrongHintAvailable = false;
+    document.getElementById("hideWrongHintButton").disabled = true;
+    document.getElementById("hideWrongHintSVG").appendChild(drawCross());
   }
 }
 
 function nextQuestion() {
+  if (nextQuestionAvailable) {
   clearInterval(interval);
   resetPoints();
+  document.getElementById(localGameArray[i].FalscherHinweis).style.visibility = null;
   if (localGameArray[++i] != undefined) {
     game();
     circularTimer()}
   else finish();
+  nextQuestionAvailable = false;
+  document.getElementById("nextQuestionButton").disabled = true;
+  document.getElementById("nextQuestionSVG").appendChild(drawCross());
+  }
+}
+
+function drawCross() {
+  var newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path'); //Create a path in SVG's namespace
+  newElement.setAttribute("d","M 10,10 L 490,490 M 490,10 L 10,490"); //Set path's data
+  newElement.style.stroke = "#ffffff"; //Set stroke colour
+  newElement.style.strokeWidth = "50px"; //Set stroke width  
+  return newElement;
 }
 
 function submitAnswer() {
@@ -105,16 +126,24 @@ function finish(){
 }
 
 function game() {
-  document.getElementById("QuestionNumber").innerHTML = "Frage Nr: " + (i + 1);
-  document.getElementById("lookingFor").innerHTML = "Gesucht ist: " + localGameArray[i].GesuchtIst;
-  document.getElementById("HintOne").innerHTML = localGameArray[i].HintOne;
-  document.getElementById("HintTwo").innerHTML = localGameArray[i].HintTwo;
-  document.getElementById("HintThree").innerHTML = localGameArray[i].HintThree;
-  document.getElementById("HintFour").innerHTML = localGameArray[i].HintFour;
+  document.getElementById("QuestionNumber").innerHTML = "Frage " + (i + 1);
+  document.getElementById("lookingFor").innerHTML = createLookingForText(localGameArray[i].GesuchtIst);
+  document.getElementById("HintOne").innerHTML = createHintText(localGameArray[i].HintOne);
+  document.getElementById("HintTwo").innerHTML = createHintText(localGameArray[i].HintTwo);
+  document.getElementById("HintThree").innerHTML = createHintText(localGameArray[i].HintThree);
+  document.getElementById("HintFour").innerHTML = createHintText(localGameArray[i].HintFour);
   document.getElementById("answer").maxLength = localGameArray[i].Antwort.length;
   document.getElementById("answer").style.width = (1.5 * localGameArray[i].Antwort.length - 0.01) + 'ch';
   document.getElementById("answer").autofocus = true;
   interval = setInterval(startTimer, 50);
+}
+
+function createLookingForText(text) {
+  return `<div class="looking-for-inner1"><div class="looking-for-inner2"><div class="looking-for-inner3"><div class="looking-for-inner-text">${text}</div></div></div></div>`;
+}
+
+function createHintText(text) { 
+  return `<div class="hint-inner-text">${text}</div>`;
 }
 
 function startTimer() {

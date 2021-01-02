@@ -59,22 +59,89 @@
             <input class="new-Question-input" id="Antwort" name="Antwort" required autocomplete="off" placeholder="Antwort"/>
             <br>
 
-            <label for="FalscherHinweis">Falscher Hinweis: </label><br>
-              <input type="radio" id="WrongHintOne" name="FalscherHinweis" value="HintOne" required>
-              <label for="one"> Hinweis 1</label> 
-              <input type="radio" id="WrongHintTwo" name="FalscherHinweis" value="HintTwo">
-              <label for="two"> Hinweis 2</label>
-              <input type="radio" id="WrongHintThree" name="FalscherHinweis" value="HintThree">
-              <label for="three"> Hinweis 3</label> 
-              <input type="radio" id="WrongHintFour" name="FalscherHinweis" value="HintFour">
-              <label for="four"> Hinweis 4</label> 
-              <br>
+            <div class="radio-buttons"><label for="FalscherHinweis" class="rb-label">Falscher Hinweis</label>
+            
+              <input id="WrongHint" class="WrongHint" name="FalscherHinweis" value="HintOne" required style="display: none;">
+                <div class="rb-tab wrong-hint rb-tab-active" name="FalscherHinweis" data-value="HintOne">
+                  <div class="rb-spot">
+                    <span class="rb-txt">1</span>
+                  </div>
+                </div>
+                <div class="rb-tab wrong-hint" name="FalscherHinweis" data-value="HintTwo">
+                  <div class="rb-spot">
+                    <span class="rb-txt">2</span>
+                  </div>
+                </div>
+                <div class="rb-tab wrong-hint" name="FalscherHinweis" data-value="HintThree">
+                  <div class="rb-spot">
+                    <span class="rb-txt">3</span>
+                  </div>
+                </div>
+                <div class="rb-tab wrong-hint" name="FalscherHinweis" data-value="HintFour">
+                  <div class="rb-spot">
+                    <span class="rb-txt">4</span>
+                  </div>
+                </div>
+              </div>
+                <br>
+
               
-              <label id="difficulty"></label><br>
-              <div class="slidecontainer">
-                <input type="range" min="1" max="10" value="5" id="myRange" name="Schwierigkeit">
+                <div class="radio-buttons"><label for="Schwierigkeit" class="rb-label">Schwierigkeit</label>
+                <input id="difficulty" class="difficulty" name="Schwierigkeit" value="1" required style="display: none;">
+                <div class="rb-tab difficulty-rb rb-tab-active" id="myRange" name="Schwierigkeit" data-value="1">
+                  <div class="rb-spot">
+                    <span class="rb-txt">1</span>
+                  </div>
+                </div>
+                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="2">
+                  <div class="rb-spot">
+                    <span class="rb-txt">2</span>
+                  </div>
+                </div>
+                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="3">
+                  <div class="rb-spot">
+                    <span class="rb-txt">3</span>
+                  </div>
+                </div>
+                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="4">
+                  <div class="rb-spot">
+                    <span class="rb-txt">4</span>
+                  </div>
+                </div>
+                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="5">
+                  <div class="rb-spot">
+                    <span class="rb-txt">5</span>
+                  </div>
+                </div>
+                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="6">
+                  <div class="rb-spot">
+                    <span class="rb-txt">6</span>
+                  </div>
+                </div>
+                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="7">
+                  <div class="rb-spot">
+                    <span class="rb-txt">7</span>
+                  </div>
+                </div>
+                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="8">
+                  <div class="rb-spot">
+                    <span class="rb-txt">8</span>
+                  </div>
+                </div>
+                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="9">
+                  <div class="rb-spot">
+                    <span class="rb-txt">9</span>
+                  </div>
+                </div>
+                <div class="rb-tab difficulty-rb" id="myRange" name="Schwierigkeit" data-value="10">
+                  <div class="rb-spot">
+                    <span class="rb-txt">10</span>
+                  </div>
+                </div>
               </div>
               <br>
+            </div>
+            <br>
               
 
             <input class="honeypot" id="questionHoneypot" type="text" name="honeypot" value="" />

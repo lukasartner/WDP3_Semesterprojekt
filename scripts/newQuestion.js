@@ -1,12 +1,18 @@
-var slider = document.getElementById("myRange");
-var output = document.getElementById("difficulty");
-output.innerHTML = `Schwierigkeitsgrad: ${slider.value}`; // Display the default slider value
+//Switcher function for wrong-hint:
+$(".wrong-hint").click(function(){
+  //Spot switcher:
+  $(this).parent().find(".rb-tab").removeClass("rb-tab-active");
+  $(this).addClass("rb-tab-active");
+  document.getElementById("WrongHint").value = $(this).attr("data-value");
+});
 
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  console.log(this.value);
-  output.innerHTML = `Schwierigkeitsgrad: ${this.value}`;
-};
+//Switcher function for difficulty:
+$(".difficulty-rb").click(function(){
+  //Spot switcher:
+  $(this).parent().find(".rb-tab").removeClass("rb-tab-active");
+  $(this).addClass("rb-tab-active");
+  document.getElementById("difficulty").value = $(this).attr("data-value");
+});
 
 (function() {
     // get all data in form and return object
