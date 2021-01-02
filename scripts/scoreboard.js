@@ -20,6 +20,7 @@ function initScoreboard() {
 function buildHtmlTable(selector) {
     var columns = addAllColumnHeaders(localScoreboardArray, selector);
     const highestScore = localScoreboardArray[0][columns[2]];
+    var scorePct;
     for (var i = 0; i < scoresToDisplay; i++) {
       var row$ = $('<tr/>');
       for (var colIndex = 0; colIndex < columns.length; colIndex++) {
@@ -27,7 +28,9 @@ function buildHtmlTable(selector) {
         if (cellValue == null) cellValue = "";
         row$.append($(`<td class="column${columns[colIndex]}"/>`).html(cellValue));
       }
-      row$.append($('<td class="columnRatio"/>').html(Math.floor(localScoreboardArray[i][columns[2]] / highestScore * 100) + "%"));
+      scorePct = Math.floor(localScoreboardArray[i][columns[2]] / highestScore * 100) + "%";
+      row$.append($(`<td class="columnRatio RatioRow${i}" style="position: relative;"\>`).html(`<div style="width: ${scorePct}; height: 100%; background: #a2a2a2; margin: 0px; padding: 0px; position: absolute; top: 0; left: 0; border-right: solid 2px #565656;">${scorePct}</div>`));
+      //style="width:${scorePct}; background='red'/>
       $(selector).append(row$);
     }
   }
