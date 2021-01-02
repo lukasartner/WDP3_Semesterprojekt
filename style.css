@@ -174,6 +174,39 @@
     width: 250px;
    }
 
+/*************
+* Scoreboard *
+*************/
+
+.table {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+tr:first-child {
+  background-color: #bb5f6b;
+  font-size: 25px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 15px;
+}
+
+tr:nth-child(2n+3) {
+  background-color: #69696977;
+}
+
+tr:nth-child(2n+2) {
+  background-color: #dbd9d977;
+}
+
+td {
+  font-size: 18px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 /**********
 * Projekt *
 **********/
