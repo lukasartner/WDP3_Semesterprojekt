@@ -56,6 +56,10 @@
     padding: 20px;
     width: 250px;
    }
+
+  .vercel-link {
+    color: #000000;
+  }
   
   .modal {
     display: none; 
