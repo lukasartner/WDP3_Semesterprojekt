@@ -91,10 +91,6 @@
     transition: 0.5s;
   }
   
-  button:hover {
-    /*background-color: #8d4851;*/
-  }
-  
   button:hover span {
     padding-right: 25px;
   }
@@ -956,3 +952,4 @@ text-shadow: 0 0 6px white;
   padding: 5px;
   text-shadow: 0px 0px 3px #FFFFFB;
  }
+}
