@@ -18,21 +18,21 @@
 <body>
   <nav class="navigation">
     <section class="dropdown">
-        <button onclick="menuFunction()" class="button-dropdown">
-          <div class="menu-icon"></div>
-          <div class="menu-icon"></div>
-          <div class="menu-icon"></div>
-        </button>
-        <section id="menu-dropdown" class="dropdown-content">
-          <a href="./index.html">Quiz</a>
-          <a href="./scoreboard.html">Scoreboard</a>
-          <a href="./newQuestion.html">Neue Frage einreichen</a>
-          <a href="./projekt.html">Projekt</a>
-        </section>
+      <button onclick="menuFunction()" class="button-dropdown">
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+      </button>
+      <section id="menu-dropdown" class="dropdown-content">
+        <a href="./index.html">Quiz</a>
+        <a href="./scoreboard.html">Scoreboard</a>
+        <a href="./newQuestion.html">Neue Frage einreichen</a>
+        <a href="./projekt.html">Projekt</a>
+      </section>
     </section>
 
     <a class="nav-logo" href="./index.html"><img src="./images/Logo-Menu.png" alt="Logo small"></a>
-     
+
     <a href="./index.html" class="nav-item">Quiz</a>
     <a href="./scoreboard.html" class="nav-item">Scoreboard</a>
     <a href="./newQuestion.html" class="nav-item">Neue Frage einreichen</a>
@@ -56,7 +56,8 @@
         <p id="HintThree" class="hint-class"></p>
         <p id="HintFour" class="hint-class"></p>
         <button class="joker-button" id="hideWrongHintButton" type="submit">
-          <svg class="joker-svg" version="1.1" id="hideWrongHintSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" xml:space="preserve">
+          <svg class="joker-svg" version="1.1" id="hideWrongHintSVG" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" xml:space="preserve">
             <path d="M250.36,0.53C112.49,0.53,0.73,112.29,0.73,250.16S112.49,499.8,250.36,499.8S500,388.03,500,250.16
               S388.23,0.53,250.36,0.53z M250,470.56c-121.81,0-220.56-98.75-220.56-220.56S128.19,29.44,250,29.44S470.56,128.19,470.56,250
               S371.81,470.56,250,470.56z"></path>
@@ -70,61 +71,64 @@
               <polygon points="385.38,342.46 362.78,374.04 407.23,374.04 407.23,342.46 	"></polygon>
               <polygon points="136.34,342.46 92.77,342.46 92.77,374.04 113.74,374.04 	"></polygon>
             </g>
-            </svg>
+          </svg>
         </button>
         <button class="joker-button" id="nextQuestionButton" type="submit">
-          <svg class="joker-svg" version="1.1" id="nextQuestionSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          viewBox="0 0 500 500" xml:space="preserve">
-       <path d="M250.27,0.8C112.4,0.8,0.63,112.57,0.63,250.44S112.4,500.08,250.27,500.08s249.64-111.77,249.64-249.64
+          <svg class="joker-svg" version="1.1" id="nextQuestionSVG" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" xml:space="preserve">
+            <path d="M250.27,0.8C112.4,0.8,0.63,112.57,0.63,250.44S112.4,500.08,250.27,500.08s249.64-111.77,249.64-249.64
          S388.14,0.8,250.27,0.8z M249.91,470.84c-121.81,0-220.56-98.75-220.56-220.56S128.09,29.72,249.91,29.72
-         s220.56,98.75,220.56,220.56S371.72,470.84,249.91,470.84z"/>
-       <polygon points="113.84,123.04 247.48,256.68 113.84,390.33 135.76,412.25 291.32,256.68 135.76,101.12 "/>
-       <polygon points="250.82,123.04 384.46,256.68 250.82,390.33 272.74,412.25 428.3,256.68 272.74,101.12 "/>
-       </svg>
-       
-          
+         s220.56,98.75,220.56,220.56S371.72,470.84,249.91,470.84z" />
+            <polygon points="113.84,123.04 247.48,256.68 113.84,390.33 135.76,412.25 291.32,256.68 135.76,101.12 " />
+            <polygon points="250.82,123.04 384.46,256.68 250.82,390.33 272.74,412.25 428.3,256.68 272.74,101.12 " />
+          </svg>
+
+
         </button>
         <div class="submission">
-        <input id="answer" class="answer" type="text" autocomplete="off" style="text-transform: uppercase;" autofocus/>
-        <button class="submit-answer" id="submitAnswer" type="button">
-          <svg class="checkmark" version="1.1" id="checkmark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
-<path d="M249.96,0.77C112.09,0.77,0.32,112.53,0.32,250.4s111.77,249.64,249.64,249.64S499.59,388.27,499.59,250.4
+          <input id="answer" class="answer" type="text" autocomplete="off" style="text-transform: uppercase;"
+            autofocus />
+          <button class="submit-answer" id="submitAnswer" type="button">
+            <svg class="checkmark" version="1.1" id="checkmark" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500"
+              style="enable-background:new 0 0 500 500;" xml:space="preserve">
+              <path d="M249.96,0.77C112.09,0.77,0.32,112.53,0.32,250.4s111.77,249.64,249.64,249.64S499.59,388.27,499.59,250.4
 	S387.83,0.77,249.96,0.77z M249.59,470.8c-121.81,0-220.56-98.75-220.56-220.56S127.78,29.68,249.59,29.68
-	s220.56,98.75,220.56,220.56S371.4,470.8,249.59,470.8z"/>
-<polygon points="55.69,251.74 92.07,223.5 169,322.6 404.25,139.98 432.49,176.36 160.87,387.22 "/>
-</svg>
+	s220.56,98.75,220.56,220.56S371.4,470.8,249.59,470.8z" />
+              <polygon points="55.69,251.74 92.07,223.5 169,322.6 404.25,139.98 432.49,176.36 160.87,387.22 " />
+            </svg>
 
-        </button></div></br>
-      <div id="score" class="score">
-        <div id="countdown" class="countdown">
+          </button>
+        </div></br>
+        <div id="score" class="score">
+          <div id="countdown" class="countdown">
+          </div>
+          <div class="current-score-container">
+            <div id="currentScore" class="current-score">0</div><br>
+          </div>
         </div>
-        <div class="current-score-container">
-        <div id="currentScore" class="current-score">0</div><br>
       </div>
-      </div>
-    </div>
       <div id="afterGame" style="display: none;">
-        <form class="gform" method="POST" data-email="example@gmail.net"
-          action="https://script.google.com/macros/s/AKfycbyW4VRoai7bu6la9B7vvg1b7F-gZBWy7cBZi3URS58xkr4CRp75/exec">
-          <div class="form-elements">
-            <label for="name">Name: </label>
-            <input id="name" type="text" name="Name" />
+      <div class="your-score-container" id="yourScoreContainer">
+        <div class="your-score" id="yourScore"></div>
+      </div>
+      <form class="gform" method="POST" data-email="example@gmail.net"
+        action="https://script.google.com/macros/s/AKfycbyW4VRoai7bu6la9B7vvg1b7F-gZBWy7cBZi3URS58xkr4CRp75/exec">
+        <div class="form-elements">
+          <input class="new-score-input" id="name" type="text" name="Name" required autocomplete="off"
+            placeholder="Name" />
 
-            <input id="score" name="Punkte" style="display: none" />
+          <input id="score" name="Punkte" style="display: none" />
 
-            <input class="honeypot" id="scoreHoneypot" type="text" name="honeypot" value="" />
+          <input class="honeypot" id="scoreHoneypot" type="text" name="honeypot" value="" />
 
-            <button class="button-success pure-button button-xlarge" id="submitScore">
-              <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
-          </div>
-
-          <!-- Customise the Thankyou Message People See when they submit the form: -->
-          <div class="thankyou_message" style="display:none;">
-            <h2><em>Thanks</em> for contacting us!
-              We will get back to you soon!</h2>
-          </div>
-        </form>
+          <button class="button-success pure-button button-xlarge" id="submitScore">
+            <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+        </div>
+        <div class="thankyou_message" style="display:none;">
+          <h2>Ergebnis erfolgreich eingereicht</h2>
+        </div>
+      </form>
       </div>
     </section>
   </main>

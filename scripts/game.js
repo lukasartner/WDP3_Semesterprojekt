@@ -55,14 +55,14 @@ function startNewGame() {
 function fadeOutEffect() {
   var fadeTarget = document.getElementById("beforeGame");
   var fadeEffect = setInterval(function () {
-      if (!fadeTarget.style.opacity) {
-          fadeTarget.style.opacity = 1;
-      }
-      if (fadeTarget.style.opacity > 0) {
-          fadeTarget.style.opacity -= 0.1;
-      } else {
-          clearInterval(fadeEffect);
-      }
+    if (!fadeTarget.style.opacity) {
+      fadeTarget.style.opacity = 1;
+    }
+    if (fadeTarget.style.opacity > 0) {
+      fadeTarget.style.opacity -= 0.1;
+    } else {
+      clearInterval(fadeEffect);
+    }
   }, 100);
 }
 
@@ -78,22 +78,23 @@ function hideWrongHint() {
 
 function nextQuestion() {
   if (nextQuestionAvailable) {
-  clearInterval(interval);
-  resetPoints();
-  document.getElementById(localGameArray[i].FalscherHinweis).style.visibility = null;
-  if (localGameArray[++i] != undefined) {
-    game();
-    circularTimer()}
-  else finish();
-  nextQuestionAvailable = false;
-  document.getElementById("nextQuestionButton").disabled = true;
-  document.getElementById("nextQuestionSVG").appendChild(drawCross());
+    clearInterval(interval);
+    resetPoints();
+    document.getElementById(localGameArray[i].FalscherHinweis).style.visibility = null;
+    if (localGameArray[++i] != undefined) {
+      game();
+      circularTimer()
+    }
+    else finish();
+    nextQuestionAvailable = false;
+    document.getElementById("nextQuestionButton").disabled = true;
+    document.getElementById("nextQuestionSVG").appendChild(drawCross());
   }
 }
 
 function drawCross() {
   var newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path'); //Create a path in SVG's namespace
-  newElement.setAttribute("d","M 10,10 L 490,490 M 490,10 L 10,490"); //Set path's data
+  newElement.setAttribute("d", "M 10,10 L 490,490 M 490,10 L 10,490"); //Set path's data
   newElement.style.stroke = "#ffffff"; //Set stroke colour
   newElement.style.strokeWidth = "30px"; //Set stroke width  
   return newElement;
@@ -109,20 +110,19 @@ function submitAnswer() {
     document.getElementById("currentScore").innerHTML = score;
     document.getElementById(localGameArray[i].FalscherHinweis).style.visibility = null;
     if (localGameArray[++i] != undefined) {
-    console.log(localGameArray[i]);
-    game();
-    circularTimer()}
+      console.log(localGameArray[i]);
+      game();
+      circularTimer()
+    }
     else finish();
-  } else {
-    document.getElementById("runningGame").style.display = "none"
-    document.getElementById("afterGame").style.display = "block";
-  }
-  ;
+  } else finish()
 }
 
-function finish(){
+function finish() {
   document.getElementById("runningGame").style.display = "none"
   document.getElementById("afterGame").style.display = "block";
+  document.getElementById("yourScore").innerHTML = `Ergebnis: ${score} Punkte`;
+
 }
 
 function game() {
@@ -139,10 +139,18 @@ function game() {
 }
 
 function createLookingForText(text) {
-  return `<div class="looking-for-inner1"><div class="looking-for-inner2"><div class="looking-for-inner3"><div class="looking-for-inner-text">${text}</div></div></div></div>`;
+  return `<div class="looking-for-inner1">
+            <div class="looking-for-inner2">
+              <div class="looking-for-inner3">
+                <div class="looking-for-inner-text">
+                  ${text}
+                </div>
+              </div>
+            </div>
+          </div>`;
 }
 
-function createHintText(text) { 
+function createHintText(text) {
   return `<div class="hint-inner-text">${text}</div>`;
 }
 
@@ -151,13 +159,13 @@ function startTimer() {
   if (points == 0) {
     clearInterval(interval);
     document.getElementById("base-timer-path-remaining").style.display = "none"
-  }else
+  } else
     points--;
   document.getElementById("points").innerHTML = points;
 }
 
-function circularTimer(){
-document.getElementById("countdown").innerHTML = `
+function circularTimer() {
+  document.getElementById("countdown").innerHTML = `
 <div class="base-timer">
   <span id="points" class="base-timer__label"></span>
   <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -184,7 +192,7 @@ function calculateTimeFraction() {
   const rawTimeFraction = points / INIT_POINTS;
   return rawTimeFraction - (1 / INIT_POINTS) * (1 - rawTimeFraction);
 }
-    
+
 // Update the dasharray value as time passes, starting with 283
 function setCircleDasharray() {
   const circleDasharray = `${(
