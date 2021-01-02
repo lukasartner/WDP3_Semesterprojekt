@@ -429,11 +429,6 @@
     background-color: #4c606d;
     color: #ffffff;
   }
-
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
  
   /* Show the dropdown menu on hover */
   .show {
