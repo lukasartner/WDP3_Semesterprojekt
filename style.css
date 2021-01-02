@@ -40,7 +40,7 @@
   }
   
   a:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
   
   ul {
@@ -134,22 +134,34 @@
     margin-right: auto;
    }
 
-  .nav-item {
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
+   .nav-item {
+    color: #fff;
     text-transform: uppercase;
-    color: #ffffff;
-    margin-right: 30px;
-    height: 80px;
-    line-height: 80px;
-    padding: 4px 8px;
-   }
-   
-  .nav-item:hover {
-    background-color: #4c606d;
     text-decoration: none;
-   }
+    letter-spacing: 0.15em;
+    
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+  }
+  
+  .nav-item:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  
+  .nav-item:hover:after { 
+    width: 100%; 
+    left: 0; 
+  }
 
 /**********
 *  Quiz  *
@@ -630,7 +642,7 @@ textarea {
   margin: 15px auto;
   border: solid 2px #b6727e;
   border-radius: 12px;
-  width: 40%;
+  width: 60%;
   box-shadow: -1px 1px 15px #4b0b2c;
 }
 
@@ -640,6 +652,8 @@ width: 90%;
 -moz-transform: skew(20deg); 
 transform: skew(20deg);
 margin: 10px;
+font-size: 18px;
+text-shadow: 0 0 6px white;
 }
 
 .looking-for-inner1 {
@@ -649,7 +663,7 @@ margin: 10px;
   transform: skew(10deg);
   margin: 40px auto;
   border-radius: 12px;
-  width: 60%;
+  width: 70%;
   box-shadow: 0 0 3px 2pt #ffffff;
 }
 
@@ -685,7 +699,7 @@ margin: 10px;
   white-space: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
-  margin: 0px 40px 0px 40px;
+  margin: 10px 40px 10px 40px;
   -webkit-transform: skew(-10deg);
   -moz-transform: skew(-10deg);
   transform: skew(-10deg);

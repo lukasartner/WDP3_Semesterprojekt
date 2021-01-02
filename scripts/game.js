@@ -95,7 +95,7 @@ function drawCross() {
   var newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path'); //Create a path in SVG's namespace
   newElement.setAttribute("d","M 10,10 L 490,490 M 490,10 L 10,490"); //Set path's data
   newElement.style.stroke = "#ffffff"; //Set stroke colour
-  newElement.style.strokeWidth = "50px"; //Set stroke width  
+  newElement.style.strokeWidth = "30px"; //Set stroke width  
   return newElement;
 }
 
